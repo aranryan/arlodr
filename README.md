@@ -1,2 +1,1 @@
-# arlodr
-Package helpful in lodging forecast process
+<!-- README.md is generated from README.Rmd. Please edit that file -->
