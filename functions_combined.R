@@ -4,8 +4,6 @@
 
 require("plm")
 require("dynlm")
-#require("car")
-
 require("knitr")
 require("xlsx")
 require("tframe")
