@@ -55,17 +55,17 @@ create_sa_str_m <- function(str_m){
   str_m <- str_m %>%
     # creates column called segvar that contains the column names, and one next to
     # it with the values, dropping the time column
-    gather(segvar, value, -date, na.rm = FALSE) %>%
+    tidyr::gather(segvar, value, -date, na.rm = FALSE) %>%
     # in the following the ^ means anything not in the list
     # with the list being all characters and numbers
     # so it separates segvar into two colums using sep
     # it separates on the _, as long as it's not followed by sf
     # the not followed piece uses a Negative Lookahead from
     # http://www.regular-expressions.info/lookaround.html
-    separate(segvar, c("seg", "variable"), sep = "_(?!sf)") %>%
+    tidyr::separate(segvar, c("seg", "variable"), sep = "_(?!sf)") %>%
     # keeps seg as a column and spreads variable into multiple columns containing
     # the values
-    spread(variable,value) %>%
+    tidyr::spread(variable,value) %>%
     mutate(occ_sa = occ / occ_sf) %>%
     mutate(revpar_sa = revpar / revpar_sf) %>%
     mutate(adr_sa = adr / adr_sf) %>%
@@ -74,10 +74,10 @@ create_sa_str_m <- function(str_m){
     mutate(demar_sa = demd_sa * 365) %>% # creates demand at an annual rate
     # puts it back into a wide data frame, with one column for each series
     # days is a series for each segment/market\
-    melt(id=c("date","seg"), na.rm=FALSE) %>%
+    reshape2::melt(id=c("date","seg"), na.rm=FALSE) %>%
     mutate(variable = paste(seg, "_", variable, sep='')) %>%
     select(-seg) %>%
-    spread(variable,value)
+    tidyr::spread(variable,value)
   # if instead I had wanted an xts object, I could have done
   #read.zoo(split = 2) %>%
   #xts()
@@ -104,17 +104,17 @@ create_sa_str_q <- function(str_q){
   str_q <- str_q %>%
     # creates column called segvar that contains the column names, and one next to
     # it with the values, dropping the time column
-    gather(segvar, value, -date, na.rm = FALSE) %>%
+    tidyr::gather(segvar, value, -date, na.rm = FALSE) %>%
     # in the following the ^ means anything not in the list
     # with the list being all characters and numbers
     # so it separates segvar into two colums using sep
     # it separates on the _, as long as it's not followed by sf
     # the not followed piece uses a Negative Lookahead from
     # http://www.regular-expressions.info/lookaround.html
-    separate(segvar, c("seg", "variable"), sep = "_(?!sf)") %>%
+    tidyr::separate(segvar, c("seg", "variable"), sep = "_(?!sf)") %>%
     # keeps seg as a column and spreads variable into multiple columns containing
     # the values
-    spread(variable,value) %>%
+    tidyr::spread(variable,value) %>%
     mutate(occ_sa = occ / occ_sf) %>%
     mutate(revpar_sa = revpar / revpar_sf) %>%
     mutate(adr_sa = adr / adr_sf) %>%
@@ -123,10 +123,10 @@ create_sa_str_q <- function(str_q){
     mutate(demar_sa = demd_sa * 365) %>% # creates demand at an annual rate
     # puts it back into a wide data frame, with one column for each series
     # days is a series for each segment/market\
-    melt(id=c("date","seg"), na.rm=FALSE) %>%
+    reshape2::melt(id=c("date","seg"), na.rm=FALSE) %>%
     mutate(variable = paste(seg, "_", variable, sep='')) %>%
     select(-seg) %>%
-    spread(variable,value)
+    tidyr::spread(variable,value)
   # if instead I had wanted an xts object, I could have done
   #read.zoo(split = 2) %>%
   #xts()

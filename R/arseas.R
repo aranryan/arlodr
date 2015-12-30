@@ -61,7 +61,7 @@ seasonal_ad <- function (x,
   print(head(temp_seasonal_a))
   print(str(temp_seasonal_a))
 
-  mp <- seas(temp_seasonal_a,
+  mp <- seasonal::seas(temp_seasonal_a,
              transform.function = "log",
              regression.aictest = NULL,
              regression.variables = regressvar, #c("const", "easter[8]", "thank[3]"),

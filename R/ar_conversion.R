@@ -47,8 +47,8 @@
 #' as.quarterly(z, na.rm=TRUE)
 
 m_to_q=function(x, type){
-  out_q <- as.quarterly(
-    ts(as.numeric(x), frequency = 12, start = c(year(start(x)), month(start(x)))),
+  out_q <- tframePlus::as.quarterly(
+    ts(as.numeric(x), frequency = 12, start = c(lubridate::year(start(x)), lubridate::month(start(x)))),
     FUN=type,
     # changed the following to FALSE. sometimes the dataframe will have some
     # series that start earlier than others. If I did TRUE, I think some were
@@ -72,8 +72,8 @@ m_to_q=function(x, type){
 #'
 #' @examples
 q_to_a=function(x, type){
-  a_a <- as.annually(
-    ts(as.numeric(x), frequency = 4, start = c(year(start(x)), month(start(x)))),
+  a_a <- tframePlus::as.annually(
+    ts(as.numeric(x), frequency = 4, start = c(lubridate::year(start(x)), lubridate::month(start(x)))),
     FUN=type,
     na.rm=FALSE)
   return(a_a)

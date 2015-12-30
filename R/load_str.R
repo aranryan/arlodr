@@ -36,22 +36,22 @@ load_str <- function(load_m){
 
     # keeps seg as a column and spreads variable into multiple columns containing
     # the values
-    spread(variable,value) %>%
+    tidyr::spread(variable,value) %>%
     # days_in_month is a function I borrowed. leap_impact=0 ignores leap year
     # this uses transform to create a new column where the new column is
     # created by using sapply on the date column to apply the days_in_month
     # function with the leap_impact argument set to 0
-    transform(days = sapply(date, days_in_month,leap_impact=0)) %>%
+    base::transform(days = sapply(date, days_in_month,leap_impact=0)) %>%
     # adds several new calculated columns
-    mutate(occ = demt / supt) %>%
-    mutate(revpar = rmrevt / supt) %>%
-    mutate(adr = rmrevt / demt) %>%
+    dplyr::mutate(occ = demt / supt) %>%
+    dplyr::mutate(revpar = rmrevt / supt) %>%
+    dplyr::mutate(adr = rmrevt / demt) %>%
     # converts several concepts to millions
-    mutate(supt = supt / 1000000) %>%
-    mutate(demt = demt / 1000000) %>%
-    mutate(rmrevt = rmrevt / 1000000) %>%
-    mutate(demd = demt / days) %>%
-    mutate(supd = supt / days)
+    dplyr::mutate(supt = supt / 1000000) %>%
+    dplyr::mutate(demt = demt / 1000000) %>%
+    dplyr::mutate(rmrevt = rmrevt / 1000000) %>%
+    dplyr::mutate(demd = demt / days) %>%
+    dplyr::mutate(supd = supt / days)
 
   load_m <- b1
 
@@ -66,11 +66,11 @@ load_str <- function(load_m){
   # variable names and then reads into a zoo object spliting on the
   # second column
   m_z <- load_m %>%
-    dpylr::select(-occ, -adr, -revpar, -demd, -supd) %>%
+    dplyr::select(-occ, -adr, -revpar, -demd, -supd) %>%
     reshape2::melt(id=c("date","seg"), na.rm=FALSE) %>%
-    dpylr::mutate(variable = paste(seg, "_", variable, sep='')) %>%
-    dpylr::select(-seg) %>%
-    zoor::read.zoo(split = 2)
+    dplyr::mutate(variable = paste(seg, "_", variable, sep='')) %>%
+    dplyr::select(-seg) %>%
+    zoo::read.zoo(split = 2)
 
   # convert to quarterly
   # I couldn't use apply because the object is
@@ -117,8 +117,8 @@ load_str <- function(load_m){
   # tail(temp_q)
 
 
-  start <- as.yearqtr((start(m_z)))
-  load_q <- zooreg(vapply(m_z, m_to_q, FUN.VALUE =
+  start <- zoo::as.yearqtr((start(m_z)))
+  load_q <- zoo::zooreg(vapply(m_z, arlodr::m_to_q, FUN.VALUE =
                             numeric(ceiling(nrow(m_z)/3)),
                           type="sum"), start=start, frequency=4)
   head(load_q)
@@ -132,7 +132,7 @@ load_str <- function(load_m){
   b1q <- load_q %>%
     # creates column called segvar that contains the column names, and one next to
     # it with the values, dropping the time column
-    gather(segvar, value, -date, na.rm = FALSE) %>%
+    tidyr::gather(segvar, value, -date, na.rm = FALSE) %>%
 
     # in August 2015 I changed the following line to the one below it
     # which separates based on the last occurance of an underscore
@@ -140,11 +140,11 @@ load_str <- function(load_m){
     # series name and wanted to split on the last one, I hope this works generally
     # also changed quarterly below
     # separate(segvar, c("seg", "variable"), sep = "[^[:alnum:]]+") %>%
-    separate(segvar, c("seg", "variable"), sep = "_(?!.*_)", extra="merge") %>%
+    tidyr::separate(segvar, c("seg", "variable"), sep = "_(?!.*_)", extra="merge") %>%
 
     # keeps seg as a column and spreads variable into multiple columns containing
     # the values
-    spread(variable,value) %>%
+    tidyr::spread(variable,value) %>%
     # adds several new calculated columns
     mutate(occ = demt / supt) %>%
     mutate(revpar = rmrevt / supt) %>%
@@ -162,7 +162,7 @@ load_str <- function(load_m){
   # puts it back into a wide data frame, with one column for each series
   # days is a series for each segment/market\
   load_m <- load_m %>%
-    melt(id=c("date","seg"), na.rm=FALSE) %>%
+    reshape2::melt(id=c("date","seg"), na.rm=FALSE) %>%
     mutate(variable = paste(seg, "_", variable, sep='')) %>%
     select(-seg) %>%
     spread(variable,value)
@@ -177,7 +177,7 @@ load_str <- function(load_m){
   # puts it back into a wide zoo object, with one column for each series
   # days is a series for each segment/market\
   load_q <- load_q %>%
-    melt(id=c("date","seg"), na.rm=FALSE) %>%
+    reshape2::melt(id=c("date","seg"), na.rm=FALSE) %>%
     mutate(variable = paste(seg, "_", variable, sep='')) %>%
     select(-seg) %>%
     spread(variable,value)
