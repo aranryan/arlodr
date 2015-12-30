@@ -32,13 +32,13 @@ seas_factors_m <- function(str_m, dont_m_cols){
 
   # put the matching series into a dataframe
   dontadj_m <- toadj_m %>%
-    select(date, matches(dont_m_cols))
+    dplyr::select(date, matches(dont_m_cols))
 
   # if there is anything in addition to the date column in the dontadj_m data frame, then
   if (ncol(dontadj_m) > 1) {
     # also, removes the matching series from the full dataframe
     toadj_m  <- toadj_m  %>%
-      select(-matches(dont_m_cols))
+      dplyr::select(-matches(dont_m_cols))
     print("there are series being excluded from adjustment")
   } else {
     print("nothing in dataframe being excluded from adjustment")
@@ -79,10 +79,10 @@ seas_factors_m <- function(str_m, dont_m_cols){
   sf_m$date <- as.Date(sf_m$date)
   row.names(sf_m) <- NULL
   # full copy of seasonally adjusted, factors, and irreg
-  full_sf_m <- select(sf_m, -dummy)
+  full_sf_m <- dplyr::select(sf_m, -dummy)
   # takes just the seasonal factors
   sf_m <- sf_m %>%
-    select(date, ends_with("_sf"))
+    dplyr::select(date, ends_with("_sf"))
 
   #########
   #
@@ -151,13 +151,13 @@ seas_factors_q <- function(str_q, dont_q_cols){
 
   # put the matching series into a dataframe
   dontadj_q <- toadj_q %>%
-    select(date, matches(dont_q_cols))
+    dplyr::select(date, matches(dont_q_cols))
 
   # if there is anything in addition to the date column in the dontadj_m data frame, then
   if (ncol(dontadj_q) > 1) {
     # also, removes the matching series from the full dataframe
     toadj_q  <- toadj_q  %>%
-      select(-matches(dont_q_cols))
+      dplyr::select(-matches(dont_q_cols))
     print("there are series being excluded from adjustment")
   } else {
     print("nothing in dataframe being excluded from adjustment")
@@ -194,10 +194,10 @@ seas_factors_q <- function(str_q, dont_q_cols){
   sf_q$date <- as.Date(sf_q$date)
   row.names(sf_q) <- NULL
   # full copy of seasonally adjusted, factors, and irreg
-  full_sf_q <- select(sf_q, -dummy)
+  full_sf_q <- dplyr::select(sf_q, -dummy)
   # takes just the seasonal factors
   sf_q <- sf_q %>%
-    select(date, ends_with("_sf"))
+    dplyr::select(date, ends_with("_sf"))
 
   #########
   #
@@ -215,7 +215,7 @@ seas_factors_q <- function(str_q, dont_q_cols){
   # get column names, add sf to names for seasonal factor
   colnames(m) <- paste(colnames(dontadj_q),"_sf", sep="")
   # drop the date_sf column
-  m <- select(m, -date_sf)
+  m <- dplyr::select(m, -date_sf)
   # create dataframe with date as first column
   sf_q_dontadj <- cbind(tempc, m) %>%
     dplyr::rename(date = tempc)

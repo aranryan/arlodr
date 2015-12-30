@@ -77,10 +77,10 @@ seasonal_ad <- function (x,
   # rm(temp_seasonal_a)
 
   # grabs the seasonally adjusted series
-  tempdata_sa <- series(mp, c("d11")) # seasonally adjusted series
-  tempdata_sf <- series(mp, c("d16")) # seasonal factors
-  tempdata_fct <- series(mp, "forecast.forecasts") # forecast of nonseasonally adjusted series
-  tempdata_irreg <- series(mp, c("d13")) # final irregular component
+  tempdata_sa <- seasonal::series(mp, c("d11")) # seasonally adjusted series
+  tempdata_sf <- seasonal::series(mp, c("d16")) # seasonal factors
+  tempdata_fct <- seasonal::series(mp, "forecast.forecasts") # forecast of nonseasonally adjusted series
+  tempdata_irreg <- seasonal::series(mp, c("d13")) # final irregular component
 
   # creates xts objects
   tempdata_sa <- as.xts(tempdata_sa)
