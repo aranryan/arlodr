@@ -47,15 +47,16 @@ index_q_xts=function(x, index_year){
 #' @examples
 index_q_melted=function(x, index_year){
   x_index <- x %>%
-    spread(variable, value) %>%
+    tidyr::spread(variable, value) %>%
     read.zoo(drop=FALSE) %>%
-    xts() %>%
+    xts()  %>%
     index_q(index_year=index_year) %>%
     data.frame() %>%
     as.matrix() %>%
-    melt() %>%
-    rename(date=Var1, variable=Var2, value=value)
-  x_index$date <- as.Date(x_index$date)
+    #reshape2::melt() %>%
+    data.frame() %>%
+    dplyr::mutate(date = as.Date(rownames(.))) %>%
+    tidyr::gather(variable, value, -date)
   return(x_index)
 }
 
@@ -88,14 +89,15 @@ index_m=function(x, index_year){
 #' @examples
 index_m_melted=function(x, index_year){
   x_index <- x %>%
-    spread(variable, value) %>%
+    tidyr::spread(variable, value) %>%
     read.zoo(drop=FALSE) %>%
     xts()  %>%
     index_m(index_year=index_year) %>%
     data.frame() %>%
     as.matrix() %>%
-    melt() %>%
-    rename(date=Var1, variable=Var2, value=value)
-  x_index$date <- as.Date(x_index$date)
+    #reshape2::melt() %>%
+    data.frame() %>%
+    dplyr::mutate(date = as.Date(rownames(.))) %>%
+    tidyr::gather(variable, value, -date)
   return(x_index)
 }
