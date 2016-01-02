@@ -45,7 +45,7 @@
 #' @export
 #'
 #' @examples
-slope_log_q=function(df, start_date, end_date, gp_vec, y1, x1, transf_l){
+slope_log_q_1=function(df, start_date, end_date, gp_vec, y1, x1, transf_l){
   # creates a filter criteria to use to drop nas in the y1 variable
   filter_criteria <- paste0("!is.na(",interp(y1), ")")
   regdf <- df %>%
@@ -57,18 +57,19 @@ slope_log_q=function(df, start_date, end_date, gp_vec, y1, x1, transf_l){
     # http://stackoverflow.com/questions/26657938/how-to-make-lm-interpret-eval-in-formula
     do(fiteq = lm(as.formula(paste0("log(", y1, ") ~ ", x1, sep="")), data = .))
   # get the coefficients by group in a tidy data_frame
-  dfslope <- tidy(regdf, fiteq) %>%
+  dfslope <- broom::tidy(regdf, fiteq) %>%
     filter(term == "time(date)") %>%
     # annualizes the slope coefficient estimate
     mutate(value = (((1+estimate)^4) -1)) %>%
     # painful to get here, based on NSE vignette to use variable
-    mutate(transf = interp(transf_l)) %>%
-    mutate(variable = interp(y1)) %>%
+    mutate(transf = lazyeval::interp(transf_l)) %>%
+    mutate(variable = lazyeval::interp(y1)) %>%
     select(area_sh, variable, transf, value)
   # get the summary statistics by group in a tidy data_frame
-  dfsumm <- glance(regdf, fiteq)
+  dfsumm <- broom::glance(regdf, fiteq)
   out_x <- list(dfslope=dfslope, dfsumm=dfsumm)
   return(out_x)
 }
+
 
 
