@@ -45,9 +45,9 @@
 #' @export
 #'
 #' @examples
-slope_log_q_1=function(df, start_date, end_date, gp_vec, y1, x1, transf_l){
+slope_log_q=function(df, start_date, end_date, gp_vec, y1, x1, transf_l){
   # creates a filter criteria to use to drop nas in the y1 variable
-  filter_criteria <- paste0("!is.na(",interp(y1), ")")
+  filter_criteria <- paste0("!is.na(",lazyeval::interp(y1), ")")
   regdf <- df %>%
     filter(date >= start_date & date <= end_date) %>%
     # following seems to work, wasn't sure it would

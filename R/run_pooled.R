@@ -69,17 +69,17 @@ run_pooled_r <- function(df, eq_id, start_date, end_date, gp_vec, y, x1,
     # filter to keep certain areas
     filter(area_sh %in% keep_area_sh) %>%
     #pdata.frame(., index = c("area_sh", "date"), drop.index = FALSE, row.names = TRUE)
-    pdata.frame(., index = c(gp_vec, "date"), drop.index = FALSE, row.names = TRUE)
+    plm::pdata.frame(., index = c(gp_vec, "date"), drop.index = FALSE, row.names = TRUE)
 
   # similar to eviews with "Fixed effects" for the intercept. So this uses separate
   # fixed effects estimate of intercept for each metro
-  dem_fe <- plm(spec, data=df_pdata,model="within")
+  dem_fe <- plm::plm(spec, data=df_pdata,model="within")
   #   summary(dem_fe)
   #   dem_fe$coefficients
   #   dem_fe$formula
   #   dem_fe$call
 
-  tidy_coef <- tidy(dem_fe) %>%
+  tidy_coef <- broom::tidy(dem_fe) %>%
     mutate(p.sig = ifelse(p.value < 0.001, "***",
                           ifelse(p.value < 0.01,  "**",
                                  ifelse(p.value < 0.1, "*",
@@ -88,7 +88,7 @@ run_pooled_r <- function(df, eq_id, start_date, end_date, gp_vec, y, x1,
     mutate(spec = hold_spec_text) %>%
     select(eq_id, everything())
 
-  glance_eq <- glance(dem_fe) %>%
+  glance_eq <- broom::glance(dem_fe) %>%
     mutate(p.sig = ifelse(p.value < 0.001, "***",
                           ifelse(p.value < 0.01,  "**",
                                  ifelse(p.value < 0.1, "*",
@@ -104,7 +104,7 @@ run_pooled_r <- function(df, eq_id, start_date, end_date, gp_vec, y, x1,
   # not sure what it would do if the fixed effects aren't there.
   # By setting type = level, we are getting the level of the intercept,
   # other choices would be in terms of deviation from the mean across markets.
-  fixef <- fixef(dem_fe, type = 'level')
+  fixef <- plm::fixef(dem_fe, type = 'level')
   a <- data.frame(fixef[1:length(fixef)])
   a$area_sh <- rownames(a)
   row.names(a)<-NULL

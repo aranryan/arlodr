@@ -21,6 +21,8 @@ possible
 to_exclude <- c("date", interp(geo_code))
 }
 \details{
+Still requires that one of the columns be titled area_sh. I guess I left that part hard coded.
+
 based on example from:
 http://stackoverflow.com/questions/28911496/exclusions-with-when-using-string-versions-underscore-suffix-such-as-gather
 

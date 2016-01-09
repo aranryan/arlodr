@@ -117,7 +117,7 @@ run_indiv_r <- function(df, eq_id, start_date, end_date, gp_vec, y, x1,
   # do(fiteq = lm(as.formula(paste0(y1, " ~ ", x1, " + ", x2, sep="")), data = .))
 
   # get the coefficients by group in a tidy data_frame
-  tidy_coef <- tidy(regdf2, fiteq) %>%
+  tidy_coef <- broom::tidy(regdf2, fiteq) %>%
     mutate(p.sig = ifelse(p.value < 0.001, "***",
                           ifelse(p.value < 0.01,  "**",
                                  ifelse(p.value < 0.1, "*",
@@ -128,7 +128,7 @@ run_indiv_r <- function(df, eq_id, start_date, end_date, gp_vec, y, x1,
     ungroup() %>%
     arrange(term)
   # get the summary statistics by group in a tidy data_frame
-  glance_eq <- glance(regdf2, fiteq) %>%
+  glance_eq <- broom::glance(regdf2, fiteq) %>%
     mutate(p.sig = ifelse(p.value < 0.001, "***",
                           ifelse(p.value < 0.01,  "**",
                                  ifelse(p.value < 0.1, "*",
@@ -138,7 +138,7 @@ run_indiv_r <- function(df, eq_id, start_date, end_date, gp_vec, y, x1,
     select(eq_id, area_sh, r.squared:p.value, p.sig, everything()) %>%
     ungroup()
   # do durbinwatson test on each equation and merge on
-  dw_temp <-  lapply(1:length(regdf2$fiteq), function(x) durbinWatsonTest(eval(regdf2[[x,2]])))
+  dw_temp <-  lapply(1:length(regdf2$fiteq), function(x) car::durbinWatsonTest(eval(regdf2[[x,2]])))
   dw_temp <- do.call(rbind.data.frame, dw_temp) %>%
     rename(dw_p = p) %>%
     select(dw, dw_p)
