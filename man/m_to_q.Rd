@@ -26,7 +26,7 @@ so this is what I came up with
 \examples{
 
 # as an example of using this function is the steps I had in
-load_str_openclose, which are as follows
+#load_str_openclose, which are as follows
 start <- as.yearqtr((start(opcl_m)))
 h <- zooreg(vapply(opcl_m, m_to_q, FUN.VALUE =
                     numeric(floor(nrow(opcl_m)/3)),
