@@ -4,7 +4,7 @@
 \alias{load_str}
 \title{process monthly STR data}
 \usage{
-load_str(load_m)
+load_str(load_m, units = NULL)
 }
 \arguments{
 \item{load_m}{}
