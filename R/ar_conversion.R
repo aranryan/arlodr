@@ -85,7 +85,9 @@ q_to_a=function(x, type){
 #'
 #' need to give the type of conversion as argument, for example could do b <-
 #' q_to_a_xts(suma, type="sum") this function uses the q_to_a function that I've
-#' defined above, but then applys it to all of the columns of a xts object
+#' defined above, but then applys it to all of the columns of a xts object.
+#' To convert using an average, set type="mean".
+#'
 #'
 #' @param x
 #' @param type
@@ -106,3 +108,52 @@ q_to_a_xts=function(x, type){
   h <- xts(h)
   return(h)
 }
+
+#' Conversion from annual to quarterly
+#'
+#' Based on the td function in the tempdisagg package. The Denton-Cholette method is in the
+#' documentation as a good default method if you don't have an indicator series.
+#' The type of conversion, or type, needs to be defined. It can be used with
+#' conversion "sum", "average", "first" or "last".
+#'
+#' This is used in the a_to_q_xts function.
+#'
+#' @param x
+#' @param type "sum", "average", "first" or "last".
+#'
+#' @return
+#' @export
+#'
+#' @examples
+a_to_q=function(x, type){
+  # converts to ts
+  out_q <- ts(as.numeric(x), frequency = 1,
+              start = c(lubridate::year(start(x)), lubridate::month(start(x))))
+  # performs temporal disaggregation to convert from annual to quarterly
+  out_q <- predict(tempdisagg::td(out_q ~ 1, to = "quarterly",
+                                  method = "denton-cholette", conversion = type)) %>%
+    zoo::as.zoo()
+}
+
+#' Convert an annual xts object with multiple columns and to annual
+#'
+#' Uses the a_to_q function.
+#'
+#' @param x
+#' @param type
+#'
+#' @return
+#' @export
+#'
+#' @examples
+a_to_q_xts=function(x, type) {
+  x %>%
+    lapply(., FUN=a_to_q, type=type) %>%
+    do.call("merge", .) %>%
+    data.frame(date=time(.), .) %>%
+    # converts years with fractions to quarters
+    mutate(date = zoo::as.yearqtr(date)) %>%
+    mutate(date = as.Date(date))
+}
+
+

@@ -12,6 +12,7 @@ q_to_a_xts(x, type)
 \description{
 need to give the type of conversion as argument, for example could do b <-
 q_to_a_xts(suma, type="sum") this function uses the q_to_a function that I've
-defined above, but then applys it to all of the columns of a xts object
+defined above, but then applys it to all of the columns of a xts object.
+To convert using an average, set type="mean".
 }
 
