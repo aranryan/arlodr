@@ -15,7 +15,7 @@
 #' @examples
 seasonal_ad <- function (x,
                          meffects = c("const", "easter[8]", "thank[5]"),
-                         qeffects = c("const", "easter[8]")) {
+                         qeffects = c("const", "easter[8]", "tdnolpyear")) {
   #stores the name
   holdn <- names(x)
   print(holdn)
@@ -100,6 +100,110 @@ seasonal_ad <- function (x,
   # merges the adjusted series onto the existing xts object with the unadjusted
   # series
   out_sa <- merge(y, tempdata_sa, tempdata_sf, tempdata_fct, tempdata_irreg)
+  return(out_sa)
+}
+
+
+#' modified version of seasonal_ad
+#' Uses a holiday regressor argument,
+#' also set up to use seats, following the way I had set things up in my more structured approach
+#'
+#' @param x
+#' @param meffects
+#' @param qeffects
+#' @param hold_reg
+#'
+#' @return
+#' @export
+#'
+#' @examples
+seasonal_ad_2 <- function (x,
+                           meffects = c("tdnolpyear", "ls2001.Sep"),
+                           qeffects = c("tdnolpyear", "ls2001.Sep"),
+                           hold_reg) {
+  #stores the name
+  holdn <- names(x)
+  print(holdn)
+  # trims the NAs from the series
+  # I commented this out while doing the host work because it was causing the
+  # seasonal factors to be shifted, and not aligned with the proper dates
+  # I didn't have this issue before I guess because things all tended to
+  # start at the same date
+  # x <- na.trim(x)
+  # this series y is used in the output, just outputs the original series
+  y <- x
+  y <- xts(y)
+
+  # http://stackoverflow.com/questions/15393749/get-frequency-for-ts-from-and-xts-for-x12
+  freq <- switch(periodicity(x)$scale,
+                 daily=365,
+                 weekly=52,
+                 monthly=12,
+                 quarterly=4,
+                 yearly=1)
+
+
+  plt_start <- as.POSIXlt(start(x))
+  start <- c(plt_start$year+1900,plt_start$mon+1)
+  print(start)
+
+  # creates a time series object using start date and frequency
+  # declared it as a global object by using <<- because I couldn't figure out
+  # how to handle environments. It seems like the issue I was having is that
+  # I define the seasonal_ad function, but then when it tries to run the
+  # seas function within that it is referrring to a different environment
+  # and can't seem to find the object that I want to give as an argument to
+  # seas. This is a temporary fix. Long term I should figure out how to handle
+  # so that I'm not defining a global object from within the function, but
+  # should be fine for now.
+  temp_seasonal_a <<- ts(as.numeric(x), start=start, frequency=freq)
+
+  print(head(temp_seasonal_a))
+  print(str(temp_seasonal_a))
+  print(freq)
+  if (freq == '12') regressvar <<- meffects
+  if (freq == '4') regressvar <<- qeffects
+  print(regressvar)
+  print("checking")
+  print(head(temp_seasonal_a))
+  print(str(temp_seasonal_a))
+
+  mp <- seas(temp_seasonal_a,
+             transform.function = "log",
+             regression.aictest = NULL,
+
+             regression.variables = regressvar, #c("const", "easter[8]", "thank[3]"),
+             forecast.maxlead = 48, # extends 30 quarters ahead
+             seats.appendfcst = "yes", # appends the forecast of the seasonal factors
+             dir = "output_data/",
+             xreg = hold_reg,
+             regression.usertype = c("holiday", "holiday2", "holiday3")
+  )
+
+  #inspect(mp)
+  # removes series that is no longer needed
+  # doesn't seem to work, maybe because I don't understand environments
+  # rm(temp_seasonal_a)
+
+
+  tempdata_sa <- as.zoo(final(mp)) # seasonally adjusted series
+  tempdata_sf <- as.zoo(series(mp, "s16")) # seasonal factors
+
+  # creates xts objects
+
+  tempdata_sa <- tempdata_sa %>%
+    as.xts(order.by = as.yearmon(index(.)))
+  tempdata_sf <- tempdata_sf %>%
+    as.xts(order.by = as.yearmon(index(.)))
+
+
+  # names the objects
+  names(tempdata_sa) <- paste(holdn,"_sa",sep="")
+  names(tempdata_sf) <- paste(holdn,"_sf",sep="")
+
+  # merges the adjusted series onto the existing xts object with the unadjusted
+  # series
+  out_sa <- merge(y, tempdata_sa, tempdata_sf) #, tempdata_irreg , tempdata_fct
   return(out_sa)
 }
 

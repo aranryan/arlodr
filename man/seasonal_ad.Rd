@@ -5,7 +5,7 @@
 \title{seasonal_ad}
 \usage{
 seasonal_ad(x, meffects = c("const", "easter[8]", "thank[5]"),
-  qeffects = c("const", "easter[8]"))
+  qeffects = c("const", "easter[8]", "tdnolpyear"))
 }
 \arguments{
 \item{qeffects}{}
