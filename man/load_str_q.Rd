@@ -22,7 +22,7 @@ rmrevt
 supd
 supt
 It will also contain:
-sups (start-of-perio supply, based on the first month of the quarter)
+sups (start-of-period supply, based on the first month of the quarter)
 supe (end-of-period supply, based on first month of following quarter)
 supem (ending month supply, supply in last month of quarter)
 }
