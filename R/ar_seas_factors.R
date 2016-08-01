@@ -98,13 +98,19 @@ seas_factors_m <- function(str_m, dont_m_cols){
   # create a matrix of ones with sufficient number of columns
   m <- matrix(rep(1), nrow = nrow(sf_m), ncol = ncol(dontadj_m)) %>%
     data.frame()
+  # if there is anything in addition to the date column in the dontadj_* data frame, then
+  if (ncol(dontadj_m) > 1) {
   # get column names, add sf to names for seasonal factor
   colnames(m) <- paste(colnames(dontadj_m),"_sf", sep="")
   # drop the date_sf column
   m <- select(m, -date_sf)
+  }
+
   # create dataframe with date as first column
   sf_m_dontadj <- cbind(tempc, m) %>%
     dplyr::rename(date = tempc)
+
+
 
   print("line87")
   ########
@@ -212,10 +218,14 @@ seas_factors_q <- function(str_q, dont_q_cols){
   # create a matrix of ones with sufficient number of columns
   m <- matrix(rep(1), nrow = nrow(sf_q), ncol = ncol(dontadj_q)) %>%
     data.frame()
-  # get column names, add sf to names for seasonal factor
-  colnames(m) <- paste(colnames(dontadj_q),"_sf", sep="")
-  # drop the date_sf column
-  m <- dplyr::select(m, -date_sf)
+  # if there is anything in addition to the date column in the dontadj_q data frame, then
+  if (ncol(dontadj_q) > 1) {
+    # get column names, add sf to names for seasonal factor
+    colnames(m) <- paste(colnames(dontadj_q),"_sf", sep="")
+    # drop the date_sf column
+    m <- dplyr::select(m, -date_sf)
+  }
+
   # create dataframe with date as first column
   sf_q_dontadj <- cbind(tempc, m) %>%
     dplyr::rename(date = tempc)
