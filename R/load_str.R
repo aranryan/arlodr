@@ -423,12 +423,17 @@ load_str_q <- function(load_m){
   # this creates an object with quarterly data for sups. The value for
   # the quarter is the value from the first month of supd for the quarter.
   temp_sups <- temp_a %>%
-    read.zoo %>%
+    # sort of odd, but to get the aggregate step to retain column names
+    # in situations in which there is only one series, I had to add
+    # a blank series, and then delete it shortly thereafter.
+    mutate(blank=as.numeric(1)) %>%
+    read.zoo(drop=FALSE) %>%
     as.xts %>%
     aggregate(., first.of.quarter, first, regular=TRUE) %>%
     as.xts %>%
     # work to rename by putting in tidy format temporarily
     data.frame(date=time(.), .) %>%
+    select(-blank) %>%
     gather(segvar, value, -date) %>%
     mutate(segvar = gsub("_supd", "_sups", segvar)) %>%
     spread(segvar, value)
@@ -447,12 +452,17 @@ load_str_q <- function(load_m){
   # is accurate, in that it has the data for the last month available in the quarter,
   # but it's not really a final observation for that quarter, so it could be troublesome.
   temp_supem <- temp_a %>%
-    read.zoo %>%
+    # sort of odd, but to get the aggregate step to retain column names
+    # in situations in which there is only one series, I had to add
+    # a blank series, and then delete it shortly thereafter.
+    mutate(blank=as.numeric(1)) %>%
+    read.zoo(drop=FALSE) %>%
     as.xts %>%
     aggregate(., first.of.quarter, last, regular=TRUE) %>%
     as.xts %>%
     # work to rename by putting in tidy format temporarily
     data.frame(date=time(.), .) %>%
+    select(-blank) %>%
     gather(segvar, value, -date) %>%
     mutate(segvar = gsub("_supd", "_supem", segvar)) %>%
     spread(segvar, value)
