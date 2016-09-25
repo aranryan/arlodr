@@ -156,4 +156,48 @@ a_to_q_xts=function(x, type) {
     mutate(date = as.Date(date))
 }
 
+#' Conversion from quarterly to monthly
+#'
+#' Follows similar approach as annual to quarterly and could be collapsed as as a single function
+#'
+#' @param x
+#' @param type
+#'
+#' @return
+#' @export
+#'
+#' @examples
+q_to_m=function(x, type){
+  # converts to ts
+  # frequency of origin data is quarterly, so 4 observations per year
+  out_m <- ts(as.numeric(x), frequency = 4,
+              start = c(lubridate::year(start(x)), lubridate::month(start(x))))
+  # performs temporal disaggregation to convert from quarterly to monthly
+  out_m <- predict(tempdisagg::td(out_m ~ 1, to = "monthly",
+                                  method = "denton-cholette", conversion = type)) %>%
+    zoo::as.zoo()
+}
 
+#' Convert a quarterly xts object with multiple columns to monthly
+#'
+#' Uses the q_to_m function.
+#'
+#' @param x
+#' @param type
+#'
+#' @return
+#' @export
+#'
+#' @examples
+#'
+#' Type can be "average", for example.
+#'
+q_to_m_xts=function(x, type) {
+  x %>%
+    lapply(., FUN=q_to_m, type=type) %>%
+    do.call("merge", .) %>%
+    data.frame(date=time(.), .) %>%
+    # converts years with fractions to months
+    mutate(date = zoo::as.yearmon(date)) %>%
+    mutate(date = as.Date(date))
+}

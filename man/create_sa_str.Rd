@@ -23,5 +23,8 @@ the dataframe going into this function. So it is more generalized. Also, I
 realized that the monthly and quarterly were doing the same thing, so I
 combined them. I left the monthly and quarterly ones there, but I could get
 rid of them once I bring the US lodfor process onto the same footing.
+LAter in Sept. 2016, I wanted to add some calculations related to room changes,
+but in lodfor_v2, I still seemed to be using the separate monthly and quarterly
+create str steps. So I created the create_sa_str_v2 as what I would use going forward.
 }
 
