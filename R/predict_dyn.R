@@ -23,6 +23,75 @@ predict_dyn <- function(model, train, test, dependentvar) {
   return(testtraindata[(Ntrain+1):(Ntrain + Ntest),] )
 }
 
+#' create predictions using dyn$predict
+#' created based on
+#' http://stackoverflow.com/a/13098860/1770086
+#' also based on the help for dyn, see example at end
+#' @param model
+#' @param train
+#' @param test
+#' @param dependentvar
+#'
+#' @return
+#' @export
+#'
+#' @examples
+predict_dyn <- function(model, train, test, dependentvar) {
+  Ntrain <- nrow(train)
+  Ntest <- nrow(test)
+  testtraindata <- rbind(train, test )
+  for( i in 1:Ntest ) {
+    result <- tail(dyn$predict(model,newdata=testtraindata[1:Ntrain+i,]),1)
+    testtraindata[Ntrain+i,dependentvar] <- result[1,1]
+  }
+  return(testtraindata[(Ntrain+1):(Ntrain + Ntest),] )
+}
+
+#' Create predictions using dyn$predict, setup to start with and return
+#' data frames rather than xts
+#'
+#' In other words, in this version, you can supply data frames as arguments
+#' and receive a data frame as output. This is a bit friendlier with a map
+#' approach.
+#'
+#' created based on
+#' http://stackoverflow.com/a/13098860/1770086
+#' also based on the help for dyn, see example at end
+#' @param model Typically model fitted with dyn$lm
+#' @param train Data frame with first column in date format so that function
+#' can convert to xts easily for calcs.
+#' @param test Data frame with first column in date format.
+#' @param dependentvar Character string naming the dependentvar that is to be
+#' grown out iteratively
+#'
+#' @return
+#' @export
+#'
+#' @examples
+predict_dyn2 <- function(model, train, test, dependentvar) {
+  # convert data from df to xts
+  train <- train %>%
+    data.frame() %>%
+    zoo::read.zoo(regular=TRUE, drop=FALSE) %>%
+    xts()
+
+  # convert data from df to xts
+  test <- test %>%
+    data.frame() %>%
+    zoo::read.zoo(regular=TRUE, drop=FALSE) %>%
+    xts()
+
+  Ntrain <- nrow(train)
+  Ntest <- nrow(test)
+  testtraindata <- rbind(train, test )
+  for( i in 1:Ntest ) {
+    result <- tail(dyn$predict(model,newdata=testtraindata[1:Ntrain+i,]),1)
+    testtraindata[Ntrain+i,dependentvar] <- result[1,1]
+  }
+  (testtraindata[(Ntrain+1):(Ntrain + Ntest),]) %>%
+    # convert from xts to dataframe
+    data.frame(date=time(.), .)
+}
 
 
 
