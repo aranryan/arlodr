@@ -7,7 +7,10 @@
 extract_pred_lev(pred_lev_data, depvar_lev_chr)
 }
 \arguments{
-\item{depvar_lev_chr}{}
+\item{pred_lev_data}{Just the test period data, includes predicted value
+of the dependent variable in levels.}
+
+\item{depvar_lev_chr}{name of the series to provide a bit of confirmation}
 }
 \description{
 Pull out the predictation data column.

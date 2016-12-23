@@ -9,7 +9,13 @@ returns the data in df format.}
 grow_dlog2(predict_df, train_df, predict_dlog, predict_level)
 }
 \arguments{
-\item{predict_level}{}
+\item{predict_df}{the object with predicted dlog values, it is just the}
+
+\item{train_df}{train_df is the object with historical data, it is used}
+
+\item{predict_dlog}{character vector name of the predicted dlog series}
+
+\item{predict_level}{character vector name of the level series we are creating}
 }
 \description{
 Take a test data frame with predicted series of dlogs and use it to grow out the actual series of interest.

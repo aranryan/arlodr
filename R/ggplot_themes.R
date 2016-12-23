@@ -20,7 +20,6 @@ theme_ts1 <- function (base_size = 14, base_family = "Arial") {
       legend.key=element_rect(fill="white", colour = "white"),
       legend.key.size=unit(1, "cm"),
       legend.text=element_text(size=rel(1)),
-      legend.position = c(1, .1),
       legend.position = "none",
       legend.justification = "right",
       axis.line.x = element_line(size=.2, colour = "grey70"),

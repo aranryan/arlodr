@@ -87,18 +87,15 @@ ar_add_predictions <- function(area_sh_use, train_start_date, train_end_date,
 
 #' Pull out the predictation data column.
 #'
-#' @param pred_lev_data
-#' @param depvar_lev_chr
+#' @param pred_lev_data Just the test period data, includes predicted value
+#'  of the dependent variable in levels.
+#' @param depvar_lev_chr name of the series to provide a bit of confirmation
 #'
 #' @return
 #' @export
 #'
 #' @examples
 extract_pred_lev <- function(pred_lev_data, depvar_lev_chr){
-  # pred_lev_data is just the test period, includes predicted value of the
-  # dependent variable in levels. This just extracts that using the name
-  # of the series to provide a bit of confirmation
-
   # take the prediction data and extract the dependent variable in levels
   holddata <- pred_lev_data %>%
     # select by name of column
