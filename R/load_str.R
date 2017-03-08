@@ -327,7 +327,8 @@ load_str_q <- function(load_m){
   # puts into tidy format
   load_m_tidy <- load_m %>%
     gather(segvar, value, -date) %>%
-    separate(segvar, c("seg", "variable"), sep = "_", extra="merge") %>%
+    # separates based on last occurance of _
+    separate(segvar, c("seggeo", "variable"), sep = "_(?!.*_)", extra="merge") %>%
     spread(variable, value)
 
   #############################
@@ -342,9 +343,9 @@ load_str_q <- function(load_m){
   # second column
   m_z <- load_m_tidy  %>%
     dplyr::select(-occ, -adr, -revpar, -demd, -supd) %>%
-    reshape2::melt(id=c("date","seg"), na.rm=FALSE) %>%
-    dplyr::mutate(variable = paste(seg, "_", variable, sep='')) %>%
-    dplyr::select(-seg) %>%
+    reshape2::melt(id=c("date","seggeo"), na.rm=FALSE) %>%
+    dplyr::mutate(variable = paste(seggeo, "_", variable, sep='')) %>%
+    dplyr::select(-seggeo) %>%
     zoo::read.zoo(split = 2)
 
   # convert to quarterly
@@ -415,9 +416,9 @@ load_str_q <- function(load_m){
   first.of.quarter <- function(tt) as.Date(as.yearqtr(tt))
 
   temp_a <- load_m_tidy %>%
-    tidyr::gather(variable, value, -date, -seg) %>%
+    tidyr::gather(variable, value, -date, -seggeo) %>%
     filter(variable == "supd") %>%
-    tidyr::unite(segvar, seg, variable, sep="_", remove=TRUE) %>%
+    tidyr::unite(segvar, seggeo, variable, sep="_", remove=TRUE) %>%
     tidyr::spread(segvar, value)
 
   # this creates an object with quarterly data for sups. The value for
