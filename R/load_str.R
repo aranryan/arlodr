@@ -472,7 +472,7 @@ load_str_q <- function(load_m){
   temp_b <- left_join(temp_sups, temp_supe, by=("date")) %>%
     left_join(temp_supem, by=("date")) %>%
     gather(segvar, value, -date) %>%
-    separate(segvar, c("seg", "variable"), sep = "_", extra="merge") %>%
+    separate(segvar, c("seg", "variable"), sep = "_(?!.*_(?!s.$))", extra="merge") %>%
     spread(variable, value)
 
   ##########

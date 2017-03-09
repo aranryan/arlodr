@@ -12,6 +12,8 @@
 #' @examples
 create_sa_str_v2 <- function(df,freq){
 
+  #df <- str_host_q1
+  #freq="q"
   # create sa from seasonal factors
   # following converts to a tidy format, uses seasonal factors to calculate sa
   # series, then converts back to a wide dataframe
@@ -19,13 +21,12 @@ create_sa_str_v2 <- function(df,freq){
     # creates column called segvar that contains the column names, and one next to
     # it with the values, dropping the time column
     tidyr::gather(segvar, value, -date, na.rm = FALSE) %>%
-    # in the following the ^ means anything not in the list
-    # with the list being all characters and numbers
-    # so it separates segvar into two colums using sep
-    # it separates on the _, as long as it's not followed by sf
+    # separates segvar into two colums using sep
+    # it separates on the _, as long as it's not followed by
+    # another _, unless that second _ is followed by sf at the end of the word
     # the not followed piece uses a Negative Lookahead from
     # http://www.regular-expressions.info/lookaround.html
-    tidyr::separate(segvar, c("seg", "variable"), sep = "_(?!sf)") %>%
+    tidyr::separate(segvar, c("seg", "variable"), sep = "_(?!.*_(?!s.$))", extra="merge") %>%
     # keeps seg as a column and spreads variable into multiple columns containing
     # the values
     tidyr::spread(variable,value) %>%
@@ -69,6 +70,7 @@ create_sa_str_v2 <- function(df,freq){
   #read.zoo(split = 2) %>%
   #xts()
 }
+
 
 #' Use seasonal factors to create monthly or quarterl seasonally adjusted data
 #'
