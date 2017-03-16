@@ -54,3 +54,34 @@ roll_beta_log <- function (x) {
     )) %>%
     select(-logvalue,-trendint)
 }
+
+
+#' Estimate annualized growth
+#'
+#' See example_growth_trend in vignettes for usage. This makes an estimate even
+#' if there are only a couple actual data points.
+#'
+#' @param df
+#' @param periods_year the number of periods in a year, e.g. 4 for quarters or
+#' 365.25 for days. This will convert the slope coefficient to an annualized growth
+#' rate by doing ((1 + estimate) ^ periods_year - 1)
+#'
+#' @return
+#' @export
+#'
+#' @examples
+log_growth_1 <- function(df, periods_year) {
+  # check if all rows are na
+  if(all(is.na(df[,"y"]))){
+    # if they are all NA, then put NA in res and return it
+    res <- NA
+  } else{
+    mod <- try(lm(df[, "y"] ~ df[, "x"]))
+    if (!inherits(mod, "try-error")) {
+      res <- broom::tidy(mod)[2, "estimate"]
+      res <- ((1 + res) ^ periods_year - 1)
+    } else {
+      #print("error")
+      res <- NA
+    }
+  }}
