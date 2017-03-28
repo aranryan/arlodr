@@ -31,4 +31,3 @@ This was originally the second part of the load_str step. I broke that
 apart. I also added to this so that it creates some end-of-period,
 and start-of-period supply data.
 }
-

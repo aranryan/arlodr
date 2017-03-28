@@ -17,4 +17,3 @@ modified version of seasonal_ad
 Uses a holiday regressor argument,
 also set up to use seats, following the way I had set things up in my more structured approach
 }
-

@@ -17,4 +17,3 @@ http://stackoverflow.com/questions/18406991/saving-a-graph-with-ggsave-after-usi
 this should no longer be necessary, so I've commented it out
 ggsave <- ggplot2::ggsave; body(ggsave) <- body(ggplot2::ggsave)[-2]
 }
-

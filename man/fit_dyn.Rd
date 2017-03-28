@@ -13,4 +13,3 @@ fit_dyn(formula, data)
 Simple approach to fit a model based on a data frame using the dyn package.
 Includes a step to convert the data frame to xts before fitting.
 }
-

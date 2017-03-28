@@ -14,4 +14,3 @@ function takes a data frame of monthly str data
 and returns a list containing a monthly data frame
 and a quarterly data frame
 }
-

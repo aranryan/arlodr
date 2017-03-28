@@ -12,4 +12,3 @@ index_q_xts(x, index_year)
 \description{
 runs across a quarterly xts object to create an index of each series
 }
-

@@ -27,4 +27,3 @@ LAter in Sept. 2016, I wanted to add some calculations related to room changes,
 but in lodfor_v2, I still seemed to be using the separate monthly and quarterly
 create str steps. So I created the create_sa_str_v2 as what I would use going forward.
 }
-

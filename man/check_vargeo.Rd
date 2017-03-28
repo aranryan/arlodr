@@ -19,4 +19,3 @@ with series names as column headers and dates in a date column
 arguments: check_for = vector of codes to check for, such as based on
 geo_for_eviews
 }
-

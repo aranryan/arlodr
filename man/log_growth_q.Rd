@@ -12,4 +12,3 @@ log_growth_q(x)
 \description{
 For use in roll_beta_log
 }
-

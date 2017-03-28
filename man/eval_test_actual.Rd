@@ -13,4 +13,3 @@ eval_test_actual(full_data, test_data, dependentvar, end_date, market_text,
 \description{
 evaluates the test versus actual
 }
-

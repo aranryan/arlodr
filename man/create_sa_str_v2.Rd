@@ -14,4 +14,3 @@ create_sa_str_v2(df, freq)
 Use seasonal factors to create monthly or quarterl seasonally adjusted data
 Initially created in Sept. 2016
 }
-

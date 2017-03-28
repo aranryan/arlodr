@@ -12,4 +12,3 @@ xts_dropallna(x)
 \description{
 Works on an xts object. Useful to run before a rollapply regression.
 }
-

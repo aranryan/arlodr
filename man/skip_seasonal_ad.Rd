@@ -15,4 +15,3 @@ what would be exported by the seasonal adjustment function in other words
 copy the unadjusted series as the seasonally adjusted, create seasonal
 factors equal to 1 and create a temporary fct series
 }
-

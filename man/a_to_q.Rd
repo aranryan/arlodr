@@ -18,4 +18,3 @@ conversion "sum", "average", "first" or "last".
 \details{
 This is used in the a_to_q_xts function.
 }
-

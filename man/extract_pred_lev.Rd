@@ -15,4 +15,3 @@ of the dependent variable in levels.}
 \description{
 Pull out the predictation data column.
 }
-

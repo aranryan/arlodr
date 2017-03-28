@@ -26,4 +26,3 @@ region.
 state_name <- create_state_name_df()
 
 }
-

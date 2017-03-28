@@ -12,4 +12,3 @@ theme_jack(base_size = 12, base_family = "")
 \description{
 Set theme example
 }
-

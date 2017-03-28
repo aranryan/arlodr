@@ -12,4 +12,3 @@ theme_ts1(base_size = 14, base_family = "Arial")
 \description{
 defined theme for use in creating plots
 }
-

@@ -12,4 +12,3 @@ index_q_melted(x, index_year)
 \description{
 create an index of a single quarterly series that is in a melted dataframe
 }
-

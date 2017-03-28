@@ -15,4 +15,3 @@ copied from following link
 http://susanejohnston.wordpress.com/2012/10/01/find-and-replace-in-
 r-part-2-how-to-recode-many-values-simultaneously/
 }
-

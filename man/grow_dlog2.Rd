@@ -22,4 +22,3 @@ Take a test data frame with predicted series of dlogs and use it to grow out the
 Similar to grow_dlog, but this uses data in df format, while the other uses data in xts format. Also, this
 returns the data in df format.
 }
-

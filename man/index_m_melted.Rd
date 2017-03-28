@@ -12,4 +12,3 @@ index_m_melted(x, index_year)
 \description{
 create an index of a single monthly series that is in a melted dataframe
 }
-

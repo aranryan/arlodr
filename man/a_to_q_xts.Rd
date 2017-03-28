@@ -12,4 +12,3 @@ a_to_q_xts(x, type)
 \description{
 Uses the a_to_q function.
 }
-

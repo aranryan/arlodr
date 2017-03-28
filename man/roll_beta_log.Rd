@@ -12,4 +12,3 @@ roll_beta_log(x)
 \description{
 Uses rollapply to estimate equation results.
 }
-

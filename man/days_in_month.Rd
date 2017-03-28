@@ -15,4 +15,3 @@ I modified so you can set leap_impact equal 0 to help with str data
 \examples{
 days_in_month("2014-11-25")
 }
-

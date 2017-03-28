@@ -4,7 +4,7 @@
 \alias{rbind.all.columns}
 \title{rbind dataframes when you want to keep all columns}
 \usage{
-rbind.all.columns(x, y)
+\method{rbind}{all.columns}(x, y)
 }
 \arguments{
 \item{y}{}
@@ -14,4 +14,3 @@ simple function to
 of both data frames
 from: https://amywhiteheadresearch.wordpress.com/2013/05/13/combining-dataframes-when-the-columns-dont-match/
 }
-

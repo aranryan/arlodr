@@ -14,4 +14,3 @@ seasonal_ad(x, meffects = c("const", "easter[8]", "thank[5]"),
 seasonally adjust a series as aruments series output a dataframe containing
 the seasonal factor and the seasonally adjusted series
 }
-

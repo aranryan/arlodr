@@ -17,4 +17,3 @@ Uses the q_to_m function.
 Type can be "average", for example.
 
 }
-

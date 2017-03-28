@@ -12,4 +12,3 @@ index_m(x, index_year)
 \description{
 create an index of a _monthly_ xts or maybe zoo series
 }
-

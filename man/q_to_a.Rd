@@ -12,4 +12,3 @@ q_to_a(x, type)
 \description{
 Similar to m_to_q
 }
-

@@ -14,4 +14,3 @@ center_reg(x, hold_var)
 \description{
 Adds a centered regressor as a new column
 }
-

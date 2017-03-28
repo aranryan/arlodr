@@ -12,4 +12,3 @@ units_millions(col)
 \description{
 converts units to millions, taking a column of a dataframe as input
 }
-

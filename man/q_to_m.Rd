@@ -12,4 +12,3 @@ q_to_m(x, type)
 \description{
 Follows similar approach as annual to quarterly and could be collapsed as as a single function
 }
-

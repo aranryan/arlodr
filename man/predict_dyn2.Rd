@@ -28,4 +28,3 @@ created based on
 http://stackoverflow.com/a/13098860/1770086
 also based on the help for dyn, see example at end
 }
-

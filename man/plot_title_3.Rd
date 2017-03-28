@@ -13,4 +13,3 @@ plot_title_3(plot, grtitle, footnote, filename)
 in the following I had added ?filename? in the fred version.
 I included in the combined document. Not sure what impact that will have
 }
-

@@ -20,4 +20,3 @@ Based on a date column, append a trend variable to a data frame
   create_trend(frequency=4, date_var = "date")
 
 }
-

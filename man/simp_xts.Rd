@@ -30,4 +30,3 @@ when working with BLS data I had to add the following step
 before read.zoo because I was getting an index error
    as.data.frame() %>%
 }
-

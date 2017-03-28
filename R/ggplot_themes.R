@@ -22,7 +22,7 @@ theme_ts1 <- function (base_size = 14, base_family = "Arial") {
       legend.text=element_text(size=rel(1)),
       legend.position = "none",
       legend.justification = "right",
-      axis.line.x = element_line(size=.2, colour = "grey70"),
+      axis.line = element_line(size=.2, colour = "grey70"),
       axis.title.y=element_blank(),
       axis.title.x=element_blank(),
       axis.text=element_text(color="grey20",size=rel(.7)),

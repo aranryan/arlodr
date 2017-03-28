@@ -16,4 +16,3 @@ http://r.789695.n4.nabble.com/how-to-make-list-return-a-list-of-named-elements-t
 \details{
 I've used this to create a list of ts objects as part of working on the holiday regressors
 }
-

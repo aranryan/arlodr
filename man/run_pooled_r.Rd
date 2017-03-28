@@ -13,4 +13,3 @@ run_pooled_r(df, eq_id, start_date, end_date, gp_vec, y, x1, x2, x3, x4, x5,
 \description{
 run pooled and fixed effect regressions
 }
-

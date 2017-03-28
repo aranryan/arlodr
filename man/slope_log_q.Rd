@@ -39,4 +39,3 @@ dfslope <- tidy(regdf, fiteq) %>%
 get the summary statistics by group in a tidy data_frame
 dfsumm = glance(regdf, fiteq)
 }
-

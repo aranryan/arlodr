@@ -32,4 +32,3 @@ did the quarterly steps. I've broken it apart in July 2016 so that I could
 make tweaks to the quarterly part, and it seemed unnecessary to keep all
 together as one step.
 }
-

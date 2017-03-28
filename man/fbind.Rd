@@ -15,4 +15,3 @@ Bind two factors as an example
 \examples{
 #' fbind(iris$Species[c(1, 51, 101)], PlantGrowth$group[c(1, 11, 21)])
 }
-

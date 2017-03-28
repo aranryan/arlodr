@@ -13,4 +13,3 @@ ar_add_predictions(area_sh_use, train_start_date, train_end_date,
 \description{
 Make predictions based on growing out dlogs, after filtering to particular geography.
 }
-

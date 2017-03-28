@@ -12,4 +12,3 @@ plot_title_2(plot, grtitle, footnote, filename)
 \description{
 another approach to add title
 }
-

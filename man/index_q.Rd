@@ -12,4 +12,3 @@ index_q(x, index_year)
 \description{
 create an index of a quarterly xts or maybe zoo series
 }
-

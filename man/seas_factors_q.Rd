@@ -13,4 +13,3 @@ seas_factors_q(str_q, dont_q_cols)
 function takes a data frame of quarterly str data and returns a set of
 quarterly seasonal factors, including future months
 }
-

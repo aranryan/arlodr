@@ -12,4 +12,3 @@ create_test_train(df, varlist, dates, testNA1, testNA2)
 \description{
 create the test and train data
 }
-

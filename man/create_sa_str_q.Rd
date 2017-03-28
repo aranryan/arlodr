@@ -13,4 +13,3 @@ create_sa_str_q(str_q)
 function takes a monthly data frame with monthly data and seasonal factors
 and creates monthly sa
 }
-

@@ -38,8 +38,8 @@ head(dat_2)
 # put in a long format, convert value to log
 dat_3 <- dat_2 %>%
   gather(variable, value, -date, -origin, -trend_days) %>%
-  mutate(y = log(value)) %>%
-  mutate(x = trend_days)
+  mutate(ya = log(value)) %>%
+  mutate(xa = trend_days)
 
 # adds a slope column
 # The width argument is the number of observations being used in the rolling window.
@@ -61,18 +61,16 @@ dat_3 <- dat_2 %>%
 dat_4 <- dat_3 %>%
   group_by(origin, variable) %>%
   do({
-    slope <- rollapply(.[c("x", "y")],width = 15, arlodr::log_growth_1, periods_year=365.25,
+    slope <- rollapply(.[c("xa", "ya")],width = 15, arlodr::log_growth_2, periods_year=365.25, y=c("ya"), x=c("xa"),
                        by.column = FALSE, align = "right", fill = NA, partial=5)
     data.frame(., slope)
   })
-
-
 
 # example without using function
 dat_4 <- dat_3 %>%
   group_by(origin, variable) %>%
   do({
-    slope <- zoo::rollapply(.[c("x", "y")],width = 50, function(m) coef(lm(formula = y ~ x, data = as.data.frame(m)))[2],
+    slope <- zoo::rollapply(.[c("xa", "ya")],width = 50, function(m) coef(lm(formula = ya ~ xa, data = as.data.frame(m)))[2],
                             by.column = FALSE, align = "right", fill = NA)
     data.frame(., slope)
   })
@@ -81,6 +79,17 @@ dat_4 <- dat_3 %>%
 
 
 
+dat_3a <- dat_3 %>%
+  rename(ya = y,
+         xa = x)
+
+dat_4a <- dat_3a %>%
+  group_by(origin, variable) %>%
+  do({
+    slope <- rollapply(.[c("xa", "ya")],width = 15, log_growth_2, periods_year=365.25, y=c("ya"), x=c("xa"),
+                       by.column = FALSE, align = "right", fill = NA, partial=5)
+    data.frame(., slope)
+  })
 
 
 

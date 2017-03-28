@@ -47,4 +47,3 @@ as.annually(z, na.rm=TRUE)
 as.quarterly(z)
 as.quarterly(z, na.rm=TRUE)
 }
-
