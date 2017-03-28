@@ -85,3 +85,38 @@ log_growth_1 <- function(df, periods_year) {
       res <- NA
     }
   }}
+
+#' Estimate annualize growth modified
+#'
+#' See example_growth_trend in vignettes for usage. This makes an estimate even
+#' if there are only a couple actual data points.
+#'
+#' Same as log_growth_1, but modified to allow refering to columns by name
+#' as arguments, rather than requiring that they be named x and y
+#'
+#' @param df
+#' @param periods_year the number of periods in a year, e.g. 4 for quarters or
+#' 365.25 for days. This will convert the slope coefficient to an annualized growth
+#' rate by doing ((1 + estimate) ^ periods_year - 1)
+#' @param y character vector naming dependent variable
+#' @param x character vector naming independent variable
+#'
+#' @return
+#' @export
+#'
+#' @examples
+log_growth_2 <- function(df, periods_year, y, x) {
+  # check if all rows are na
+  if(all(is.na(df[,y]))){
+    # if they are all NA, then put NA in res and return it
+    res <- NA
+  } else{
+    mod <- try(lm(df[, y] ~ df[, x]))
+    if (!inherits(mod, "try-error")) {
+      res <- broom::tidy(mod)[2, "estimate"]
+      res <- ((1 + res) ^ periods_year - 1)
+    } else {
+      #print("error")
+      res <- NA
+    }
+  }}
