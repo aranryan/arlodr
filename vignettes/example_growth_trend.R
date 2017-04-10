@@ -76,21 +76,18 @@ dat_4 <- dat_3 %>%
   })
 
 
+# can I do it without the rollappply, so just slopes by gropu
+# I'd like to get this to work, then it would be an example of using log_growth_2 without rollapply, which
+# would make it useful in fred
 
-
-
-dat_3a <- dat_3 %>%
-  rename(ya = y,
-         xa = x)
-
-dat_4a <- dat_3a %>%
+dat_4 <- dat_3 %>%
   group_by(origin, variable) %>%
   do({
-    slope <- rollapply(.[c("xa", "ya")],width = 15, log_growth_2, periods_year=365.25, y=c("ya"), x=c("xa"),
-                       by.column = FALSE, align = "right", fill = NA, partial=5)
+    slope <- arlodr::log_growth_2(periods_year=365.25, y=c("ya"), x=c("xa"), df=.)
     data.frame(., slope)
   })
 
 
+tempa <- function(df, y) {
 
-
+}
