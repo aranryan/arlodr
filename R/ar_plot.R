@@ -83,7 +83,43 @@ plot_title_3=function(plot, grtitle, footnote, filename){
   ggsave(grobframe,file=filename,height=5.7,width=9,dpi=800,units="in")
 }
 
+#' Plotting function
+#'
+#' This is the plotting function that I was using for some time in the US overview graphs. I had previously had some
+#' troubling moving it to the package. But when I cleaned up how I was referring to paths, it seemed
+#' to work. So here it is.
+#'
+#' @param plot
+#' @param grtitle
+#' @param subtitle
+#' @param footnote
+#' @param filename
+#' @param saveheight
+#' @param savewidth
+#'
+#' @return
+#' @export
+#'
+#' @examples
+plot_title_5=function(plot, grtitle, subtitle, footnote, filename, saveheight=5.7,
+                      savewidth=8.5){
+  # create a list of grobs in order
+  title_grob <- textGrob(grtitle, x=0, hjust=0, vjust=0.6,
+                         gp = gpar(fontsize=16, fontface="bold"))
+  subtitle_grob <- textGrob(subtitle, x=0, hjust=0, gp = gpar(fontsize=10, col="grey20"))
+  footnote_grob <- textGrob(footnote, x=0, hjust=0, vjust=0.1,
+                            gp = gpar(fontface="plain", fontsize=7, col="grey20"))
+  groblist <- list(title_grob, subtitle_grob, plot, footnote_grob)
 
+  grobframe <- arrangeGrob(ncol=1, nrow=4,
+                           # height of each row defined using npc, where npc means
+                           # normalised parent coordinates - basically analogous to
+                           # a proportion of the plot area, so values range from 0 to 1
+                           heights=unit(c(.1, .05, .75, .1), "npc"), grobs=groblist)
+  grid.newpage() # basic command to create a new page of output
+  grid.draw(grobframe)
+  ggsave(grobframe,file=filename,height=saveheight,width=savewidth,dpi=400,units="in")
+}
 
 #' combines two plots together (e.g. employment and GDP)
 #'
