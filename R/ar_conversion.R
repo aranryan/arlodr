@@ -166,6 +166,10 @@ a_to_q_xts=function(x, type) {
 #' @return
 #' @export
 #'
+#' I've learned from the monthly version that if you give it an xts object with only one series,
+#' it will return an object without the series name, just a dot. But if you
+#' give it an xts with multiple series names, it will keep the names.
+#'
 #' @examples
 q_to_m=function(x, type){
   # converts to ts
@@ -191,6 +195,10 @@ q_to_m=function(x, type){
 #' @examples
 #'
 #' Type can be "average", for example.
+#'
+#' I've learned that if you give it an xts object with only one series,
+#' it will return an object without the series name, just a dot. But if you
+#' give it an xts with multiple series names, it will keep the names.
 #'
 q_to_m_xts=function(x, type) {
   x %>%
