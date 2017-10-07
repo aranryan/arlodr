@@ -12,8 +12,3 @@ q_to_m_xts(x, type)
 \description{
 Uses the q_to_m function.
 }
-\examples{
-
-Type can be "average", for example.
-
-}
