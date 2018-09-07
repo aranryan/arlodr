@@ -2,7 +2,6 @@
 % Please edit documentation in R/predict_dyn.R
 \name{predict_dyn}
 \alias{predict_dyn}
-\alias{predict_dyn}
 \title{create predictions using dyn$predict
 created based on
 http://stackoverflow.com/a/13098860/1770086

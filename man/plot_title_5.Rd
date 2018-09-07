@@ -4,8 +4,8 @@
 \alias{plot_title_5}
 \title{Plotting function}
 \usage{
-plot_title_5(plot, grtitle, subtitle, footnote, filename, saveheight = 5.7,
-  savewidth = 8.5)
+plot_title_5(plot, grtitle, subtitle, footnote, filename,
+  saveheight = 5.7, savewidth = 8.5)
 }
 \arguments{
 \item{savewidth}{}
