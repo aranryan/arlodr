@@ -17,7 +17,7 @@ plot_title_1=function(plot, grtitle, footnote){
                            main = textGrob(grtitle, x=0, hjust=0, vjust=0.6,
                                            gp = gpar(fontsize=16, fontface="bold")),
                            sub = textGrob(footnote, x=0, hjust=0, vjust=0.1,
-                                          gp = gpar(fontface="plain", fontsize=7)))
+                                          gp = gpar(fontface="plain", fontsize=7, lineheight=0.9)))
   grid.newpage() # basic command to create a new page of output
   grid.draw(grobframe)
   # these worked but didn't improve things much I thought
@@ -41,7 +41,7 @@ plot_title_2=function(plot, grtitle, footnote, filename){
                            main = textGrob(grtitle, x=0, hjust=0, vjust=0.6,
                                            gp = gpar(fontsize=16, fontface="bold")),
                            sub = textGrob(footnote, x=0, hjust=0, vjust=0.1,
-                                          gp = gpar(fontface="plain", fontsize=7)))
+                                          gp = gpar(fontface="plain", fontsize=7, lineheight=0.9)))
   grid.newpage() # basic command to create a new page of output
   grid.draw(grobframe)
   # these worked but didn't improve things much I thought
@@ -73,7 +73,7 @@ plot_title_3=function(plot, grtitle, footnote, filename){
                            top = textGrob(grtitle, x=0, hjust=0, vjust=0.6,
                                           gp = gpar(fontsize=16, fontface="bold")),
                            bottom = textGrob(footnote, x=0, hjust=0, vjust=0.1,
-                                             gp = gpar(fontface="plain", fontsize=7)))
+                                             gp = gpar(fontface="plain", fontsize=7, lineheight=0.9)))
   grid.newpage() # basic command to create a new page of output
   grid.draw(grobframe)
   # these worked but didn't improve things much I thought
@@ -108,7 +108,7 @@ plot_title_5=function(plot, grtitle, subtitle, footnote, filename, saveheight=5.
                          gp = gpar(fontsize=16, fontface="bold"))
   subtitle_grob <- textGrob(subtitle, x=0, hjust=0, gp = gpar(fontsize=10, col="grey20"))
   footnote_grob <- textGrob(footnote, x=0, hjust=0, vjust=0.1,
-                            gp = gpar(fontface="plain", fontsize=7, col="grey20"))
+                            gp = gpar(fontface="plain", fontsize=7, col="grey20", lineheight=0.9))
   groblist <- list(title_grob, subtitle_grob, plot, footnote_grob)
 
   grobframe <- arrangeGrob(ncol=1, nrow=4,
