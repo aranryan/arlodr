@@ -69,6 +69,8 @@ seasonal_ad <- function (x,
              identify.sdiff = c(0, 1),
              forecast.maxlead = 30, # extends 30 quarters ahead
              x11.appendfcst = "yes", # appends the forecast of the seasonal factors
+             estimate.maxiter = 5000, # increased from default of 1500 as suggested in following link
+             # https://github.com/christophsax/seasonal/wiki/Breaking-Examples-(and-Possible-Solutions)
              dir = "output_data/"
   )
   #inspect(mp)
