@@ -48,7 +48,9 @@ create_sa_str_v2 <- function(df,freq){
       # net rooms opening
       # set to NA to start
       # calc if argument is quarterly (monthly df won't have supe)
-      mutate(netrmsop = supe - sups - schangebroad)
+      mutate(netrmsop = supe - sups - schangebroad) %>%
+      # try calculating a ratio of supd to the average of sups and supe
+      mutate(supdratio = supd/((sups + supe)/2))
   }
 
   if(freq=="m"){
