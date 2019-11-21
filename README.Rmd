@@ -13,3 +13,8 @@ knitr::opts_chunk$set(
   fig.path = "README-"
 )
 ```
+
+To install:
+
+library(devtools)
+install_github("aranryan/arlodr")
