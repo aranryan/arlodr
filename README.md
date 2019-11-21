@@ -2,5 +2,6 @@
 
 To install:
 
-library(devtools)  
+library(devtools)
+
 install\_github(“aranryan/arlodr”)
