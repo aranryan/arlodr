@@ -12,7 +12,7 @@
 seasonal_apply <- function(df, date, group){
 
   df_1 <- df %>%
-    dplyr::mutate(df, supdsa = supd/supdsf,
+    dplyr::mutate(supdsa = supd/supdsf,
            demdsa = demd/demdsf,
            occsa = occ/occsf,
            adrsa = adr/adrsf,
