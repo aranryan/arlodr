@@ -9,6 +9,9 @@ create_sa_str(df)
 \arguments{
 \item{df}{}
 }
+\value{
+
+}
 \description{
 my thought process on this function had originally been that it would start
 with a dataframe that had a single underscore between the segment code and

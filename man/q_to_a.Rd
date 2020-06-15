@@ -9,6 +9,9 @@ q_to_a(x, type)
 \arguments{
 \item{type}{}
 }
+\value{
+
+}
 \description{
 Similar to m_to_q
 }

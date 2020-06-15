@@ -10,6 +10,9 @@ calc_cagr(x, n)
 \arguments{
 \item{n}{}
 }
+\value{
+
+}
 \description{
 Compounded Annual Rate of Change
 (Ending Value / Initial Value) ^ ( 1 / # of periods) - 1)

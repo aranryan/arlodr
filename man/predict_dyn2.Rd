@@ -18,6 +18,9 @@ can convert to xts easily for calcs.}
 \item{dependentvar}{Character string naming the dependentvar that is to be
 grown out iteratively}
 }
+\value{
+
+}
 \description{
 In other words, in this version, you can supply data frames as arguments
 and receive a data frame as output. This is a bit friendlier with a map

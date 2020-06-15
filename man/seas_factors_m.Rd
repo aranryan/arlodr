@@ -9,6 +9,9 @@ seas_factors_m(str_m, dont_m_cols)
 \arguments{
 \item{dont_m_cols}{}
 }
+\value{
+
+}
 \description{
 function takes a data frame of monthly str data and returns a set of monthly
 seasonal factors, including future months

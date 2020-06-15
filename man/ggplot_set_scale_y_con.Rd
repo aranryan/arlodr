@@ -9,6 +9,9 @@ ggplot_set_scale_y_con(plot1, set_axis_type)
 \arguments{
 \item{set_axis_type}{either "dollar" or "percent"}
 }
+\value{
+
+}
 \description{
 Created to be used in automated creation of graphs when the format of the y-axis (horizontal
 axis when used in bar graph after coord_flip()) needs to be set based on a variable

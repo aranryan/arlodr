@@ -9,6 +9,9 @@ theme_ts1(base_size = 14, base_family = "Arial")
 \arguments{
 \item{base_family}{}
 }
+\value{
+
+}
 \description{
 defined theme for use in creating plots
 }

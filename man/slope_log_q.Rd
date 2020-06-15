@@ -9,6 +9,9 @@ slope_log_q(df, start_date, end_date, gp_vec, y1, x1, transf_l)
 \arguments{
 \item{transf_l}{}
 }
+\value{
+
+}
 \description{
 function to
 df is a dataframe that is in tidy format with the variables in columns
@@ -28,7 +31,7 @@ regdf <- tmbk_q %>%
   group_by(area_sh) %>%
   do(fiteq = lm((log(empetot)) ~ time(date), data = .))
 
-get the coefficients by group in a tidy data_frame
+  get the coefficients by group in a tidy data_frame
 dfslope <- tidy(regdf, fiteq) %>%
   filter(term == "time(date)") %>%
   mutate(value = (((1+estimate)^4) -1)) %>%

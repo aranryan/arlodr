@@ -9,6 +9,9 @@ scale_percent_2(x)
 \arguments{
 \item{x}{}
 }
+\value{
+
+}
 \description{
 Set scale to percent with two decimal places
 }

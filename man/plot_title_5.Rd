@@ -4,11 +4,21 @@
 \alias{plot_title_5}
 \title{Plotting function}
 \usage{
-plot_title_5(plot, grtitle, subtitle, footnote, filename,
-  saveheight = 5.7, savewidth = 8.5)
+plot_title_5(
+  plot,
+  grtitle,
+  subtitle,
+  footnote,
+  filename,
+  saveheight = 5.7,
+  savewidth = 8.5
+)
 }
 \arguments{
 \item{savewidth}{}
+}
+\value{
+
 }
 \description{
 This is the plotting function that I was using for some time in the US overview graphs. I had previously had some

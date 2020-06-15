@@ -9,6 +9,9 @@ m_to_q(x, type)
 \arguments{
 \item{type}{}
 }
+\value{
+
+}
 \description{
 I based this on the as.quarterly function that is in the tframePlus package I
 set it up so you have to give a type of aggregation it works for type=sum or

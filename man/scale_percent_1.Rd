@@ -9,6 +9,9 @@ scale_percent_1(x)
 \arguments{
 \item{accuracy}{integer to determine the number of places to show after decimal point}
 }
+\value{
+
+}
 \description{
 Set scale to percent with one decimal place
 }

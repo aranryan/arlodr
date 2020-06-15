@@ -9,6 +9,9 @@ a_to_q(x, type)
 \arguments{
 \item{type}{"sum", "average", "first" or "last".}
 }
+\value{
+
+}
 \description{
 Based on the td function in the tempdisagg package. The Denton-Cholette method is in the
 documentation as a good default method if you don't have an indicator series.

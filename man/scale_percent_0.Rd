@@ -9,6 +9,9 @@ scale_percent_0(x)
 \arguments{
 \item{x}{}
 }
+\value{
+
+}
 \description{
 Set scale to percent with no decimal places
 }

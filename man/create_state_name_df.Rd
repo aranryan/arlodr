@@ -9,6 +9,9 @@ create_state_name_df(x)
 \arguments{
 \item{x}{}
 }
+\value{
+
+}
 \description{
 Creates a dataframe with a row for each state. Provides:
 cen_region Census Region

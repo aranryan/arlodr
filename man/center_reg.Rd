@@ -11,6 +11,9 @@ center_reg(x, hold_var)
 
 \item{hold_var}{is the character vector name of the variable for which you want to calculate a centered regressor}
 }
+\value{
+
+}
 \description{
 Adds a centered regressor as a new column
 }

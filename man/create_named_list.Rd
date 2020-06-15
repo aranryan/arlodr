@@ -9,6 +9,9 @@ create_named_list(vector_of_variable_names)
 \arguments{
 \item{vector_of_variable_names}{}
 }
+\value{
+
+}
 \description{
 Based on idea here
 http://r.789695.n4.nabble.com/how-to-make-list-return-a-list-of-named-elements-td2720620.html

@@ -10,6 +10,9 @@ check_vargeo(x, check_for)
 \arguments{
 \item{check_for}{}
 }
+\value{
+
+}
 \description{
 function to check whether all intended geographies are
 included in a dataframe of series set up with var_geo

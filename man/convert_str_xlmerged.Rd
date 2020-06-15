@@ -13,6 +13,9 @@ convert_str_xlmerged(input_file_name, output_file_name, input_path)
 
 \item{input_path}{}
 }
+\value{
+
+}
 \description{
 Function that can import the US or WW data file from STR.
 This has to deal with the fact that the file has merged cells for the market names.

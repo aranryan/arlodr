@@ -9,6 +9,9 @@ theme_jack(base_size = 12, base_family = "")
 \arguments{
 \item{base_family}{}
 }
+\value{
+
+}
 \description{
 Set theme example
 }

@@ -4,11 +4,20 @@
 \alias{eval_test_actual}
 \title{evaluates the test versus actual}
 \usage{
-eval_test_actual(full_data, test_data, dependentvar, end_date, market_text,
-  test_start)
+eval_test_actual(
+  full_data,
+  test_data,
+  dependentvar,
+  end_date,
+  market_text,
+  test_start
+)
 }
 \arguments{
 \item{end_date}{}
+}
+\value{
+
 }
 \description{
 evaluates the test versus actual

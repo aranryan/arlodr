@@ -9,6 +9,9 @@ index_q_xts(x, index_year)
 \arguments{
 \item{index_year}{}
 }
+\value{
+
+}
 \description{
 runs across a quarterly xts object to create an index of each series
 }

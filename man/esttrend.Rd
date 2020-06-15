@@ -9,6 +9,9 @@ esttrend(x, form)
 \arguments{
 \item{form}{}
 }
+\value{
+
+}
 \description{
 Can be based on log of original series or linear. Extracts trend term
 coefficient. Works on an xts object, maybe also zoo.

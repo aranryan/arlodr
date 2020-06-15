@@ -9,6 +9,9 @@ skip_seasonal_ad(x)
 \arguments{
 \item{x}{}
 }
+\value{
+
+}
 \description{
 skip seasonal adjustment but still output series that are the same format as
 what would be exported by the seasonal adjustment function in other words

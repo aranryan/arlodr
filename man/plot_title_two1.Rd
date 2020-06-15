@@ -9,6 +9,9 @@ plot_title_two1(p1, p2, grtitle, footnote, filename)
 \arguments{
 \item{filename}{}
 }
+\value{
+
+}
 \description{
 to get this function to work I needed to modify ggsave using the following line
 this is because I've used ggplot_gtable, and so the pieces aren't ggplot plot

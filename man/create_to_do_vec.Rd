@@ -9,6 +9,9 @@ create_to_do_vec(in_area_sh, ex_area_sh, market_vec)
 \arguments{
 \item{market_vec}{}
 }
+\value{
+
+}
 \description{
 Create a vector of geographies to be run for various equations.
 }

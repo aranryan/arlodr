@@ -9,6 +9,9 @@ q_to_m(x, type)
 \arguments{
 \item{type}{}
 }
+\value{
+
+}
 \description{
 Follows similar approach as annual to quarterly and could be collapsed as as a single function
 }

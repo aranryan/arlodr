@@ -9,6 +9,9 @@ create_test_train(df, varlist, dates, testNA1, testNA2)
 \arguments{
 \item{testNA2}{}
 }
+\value{
+
+}
 \description{
 create the test and train data
 }

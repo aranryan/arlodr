@@ -11,6 +11,9 @@ log_growth_1(df, periods_year)
 365.25 for days. This will convert the slope coefficient to an annualized growth
 rate by doing ((1 + estimate) ^ periods_year - 1)}
 }
+\value{
+
+}
 \description{
 See example_growth_trend in vignettes for usage. This makes an estimate even
 if there are only a couple actual data points.

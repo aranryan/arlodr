@@ -3,7 +3,6 @@
 \docType{package}
 \name{arlodr}
 \alias{arlodr}
-\alias{arlodr-package}
 \title{arlodr.}
 \description{
 Collection of functions that are useful in lodging forecast process. Also

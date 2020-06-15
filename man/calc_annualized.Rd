@@ -10,6 +10,9 @@ calc_annualized(x, p)
 \arguments{
 \item{p}{}
 }
+\value{
+
+}
 \description{
 Compounded Annual Rate of Change (not sure the difference)
 (((x(t)/x(t-1)) ** (n_obs_per_yr)) - 1) * 100
