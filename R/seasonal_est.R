@@ -19,7 +19,7 @@ seasonal_est <- function(df, holiday_input="blank"){
 
 
   # create a safe version of the function so that it handles errors nicely
-  safe_seas <- purrr:safely(seasonal::seas)
+  safe_seas <- purrr::safely(seasonal::seas)
 
   # make a time series
   ts_orig <- df %>%
