@@ -18,7 +18,7 @@ factor_extend <- function(df, horizon){
     select(date, sf)
 
   fcast_1 <- result_2 %>%
-    fabletools::mutate(date=yearmonth(date)) %>%
+    dplyr::mutate(date=yearmonth(date)) %>%
     as_tsibble(index=date) %>%
     fabletools::model(snaive = SNAIVE(sf ~ lag("year"))) %>%
     fabletools::forecast(h = horizon) %>%
