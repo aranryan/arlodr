@@ -23,9 +23,12 @@ factor_extend <- function(df, horizon){
     fabletools::model(snaive = SNAIVE(sf ~ lag("year"))) %>%
     fabletools::forecast(h = horizon) %>%
     fabletools::as_tsibble() %>%
+<<<<<<< HEAD
     # added a step to use the mean estimate as the sf estimate
     select(-sf) %>%
     rename(sf=.mean) %>%
+=======
+>>>>>>> b8f286ccba59cf7d63957939f9e0a8700e7ec2a5
     select(date, sf) %>%
     dplyr::mutate(date = as.Date(date))
 
