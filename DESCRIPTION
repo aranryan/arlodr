@@ -1,0 +1,37 @@
+Package: arlodr
+Title: What the Package Does (one line, title case)
+Version: 0.0.0.9000
+Authors@R: person("Aran", "Ryan", email = "aran.ryan@gmail.com", role = c("aut", "cre"))
+Description: Provides functions that are useful in lodging forecast process.
+Depends:
+    R (>= 3.2.2)
+License: MIT + file LICENSE
+LazyData: true
+RoxygenNote: 7.1.1
+Suggests: testthat,
+    knitr,
+    rmarkdown
+Imports: dplyr,
+    plm,
+    dynlm,
+    knitr,
+    xlsx,
+    tframe,
+    tframePlus,
+    lubridate,
+    stringr,
+    scales,
+    zoo,
+    xts,
+    seasonal,
+    forecast,
+    car,
+    reshape2,
+    ggplot2,
+    tidyr,
+    lazyeval,
+    broom,
+    assertthat,
+    readxl,
+    readr
+VignetteBuilder: knitr
