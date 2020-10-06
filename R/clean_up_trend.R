@@ -79,7 +79,7 @@ clean_up_trend <- function(df,seggeo, trend_type) {
     mutate(revpar = rmrevt/supt) %>%
     # format date column
     mutate(date = zoo::as.yearmon(date, format = "%b %y")) %>%
-    mutate(date = as.Date(date))
+    mutate(date = zoo::as.Date(date))
 
   # insert seggeo
   input_4 <- input_3 %>%
