@@ -9,9 +9,6 @@ plot_title_2(plot, grtitle, footnote, filename)
 \arguments{
 \item{filename}{}
 }
-\value{
-
-}
 \description{
 another approach to add title
 }

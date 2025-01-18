@@ -9,9 +9,6 @@ days_in_month(d = Sys.Date(), leap_impact = 1)
 \arguments{
 \item{leap_impact}{}
 }
-\value{
-
-}
 \description{
 I modified so you can set leap_impact equal 0 to help with str data
 }

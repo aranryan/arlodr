@@ -10,9 +10,6 @@ simp_xts(x, to_exclude)
 \arguments{
 \item{to_exclude}{}
 }
-\value{
-
-}
 \description{
 x is a tidy dataframe with variables as columns
 to_exclude a character vector of columns to exclude in the gather step

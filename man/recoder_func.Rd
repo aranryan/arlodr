@@ -9,9 +9,6 @@ recoder_func(data, oldvalue, newvalue)
 \arguments{
 \item{newvalue}{}
 }
-\value{
-
-}
 \description{
 Sets up a way to recode a variable, similar to a lookup table approach
 copied from following link

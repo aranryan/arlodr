@@ -9,9 +9,6 @@ fit_model_dyn(area_sh_use, train_start_date, train_end_date, spec, data)
 \arguments{
 \item{data}{}
 }
-\value{
-
-}
 \description{
 Fit a model after filtering data frame to particular geography and traning period.
 }

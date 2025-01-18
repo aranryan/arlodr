@@ -13,9 +13,6 @@ seasonal_ad(
 \arguments{
 \item{qeffects}{}
 }
-\value{
-
-}
 \description{
 seasonally adjust a series as aruments series output a dataframe containing
 the seasonal factor and the seasonally adjusted series

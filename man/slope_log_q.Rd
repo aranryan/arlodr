@@ -9,9 +9,6 @@ slope_log_q(df, start_date, end_date, gp_vec, y1, x1, transf_l)
 \arguments{
 \item{transf_l}{}
 }
-\value{
-
-}
 \description{
 function to
 df is a dataframe that is in tidy format with the variables in columns

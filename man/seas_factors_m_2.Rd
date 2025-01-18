@@ -9,9 +9,6 @@ seas_factors_m_2(str_m, dont_m_cols, hold_reg)
 \arguments{
 \item{hold_reg}{}
 }
-\value{
-
-}
 \description{
 modifed version of seas_factors_m
 }

@@ -16,9 +16,6 @@ seasonal_ad_2(
 \arguments{
 \item{hold_reg}{}
 }
-\value{
-
-}
 \description{
 modified version of seasonal_ad
 Uses a holiday regressor argument,

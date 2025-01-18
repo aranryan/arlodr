@@ -9,9 +9,6 @@ q_to_a_xts(x, type)
 \arguments{
 \item{type}{}
 }
-\value{
-
-}
 \description{
 need to give the type of conversion as argument, for example could do b <-
 q_to_a_xts(suma, type="sum") this function uses the q_to_a function that I've

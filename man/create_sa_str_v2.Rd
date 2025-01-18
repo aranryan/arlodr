@@ -10,9 +10,6 @@ create_sa_str_v2(df, freq)
 \arguments{
 \item{freq}{Character to indicate frequency, either "q", or "m"}
 }
-\value{
-
-}
 \description{
 Use seasonal factors to create monthly or quarterl seasonally adjusted data
 Initially created in Sept. 2016

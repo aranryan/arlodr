@@ -10,9 +10,6 @@ create_ts_reg_m(x, var)
 \arguments{
 \item{var}{}
 }
-\value{
-
-}
 \description{
 Creates a ts object out of a selected column in a data frame with a date column
 Currently works for monthly

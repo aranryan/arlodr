@@ -9,9 +9,6 @@ fit_model_dyn_c(area_sh_use, train_start_date, train_end_date, spec, data)
 \arguments{
 \item{data}{}
 }
-\value{
-
-}
 \description{
 Title
 }

@@ -9,9 +9,6 @@ a_to_q_xts(x, type)
 \arguments{
 \item{type}{}
 }
-\value{
-
-}
 \description{
 Uses the a_to_q function.
 }

@@ -25,9 +25,6 @@ run_pooled_r(
 \arguments{
 \item{select_out}{}
 }
-\value{
-
-}
 \description{
 run pooled and fixed effect regressions
 }

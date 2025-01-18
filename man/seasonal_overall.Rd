@@ -13,9 +13,6 @@ seasonal_overall(df, group, holiday_input = "blank", horizon = "5 years")
 
 \item{horizon}{}
 }
-\value{
-
-}
 \description{
 Combined steps of seasonal adjustment
 }

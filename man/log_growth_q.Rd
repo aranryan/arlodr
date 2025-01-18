@@ -9,9 +9,6 @@ log_growth_q(x)
 \arguments{
 \item{x}{}
 }
-\value{
-
-}
 \description{
 For use in roll_beta_log
 }

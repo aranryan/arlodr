@@ -12,9 +12,6 @@ of the dependent variable in levels.}
 
 \item{depvar_lev_chr}{name of the series to provide a bit of confirmation}
 }
-\value{
-
-}
 \description{
 Pull out the predictation data column.
 }

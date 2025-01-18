@@ -11,9 +11,6 @@ extend_strdays(df, freq)
 
 \item{freq}{Either "m", "q" or "a"}
 }
-\value{
-
-}
 \description{
 Extend the number of strdays by recalculating
 }

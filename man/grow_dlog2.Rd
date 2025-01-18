@@ -17,9 +17,6 @@ grow_dlog2(predict_df, train_df, predict_dlog, predict_level)
 
 \item{predict_level}{character vector name of the level series we are creating}
 }
-\value{
-
-}
 \description{
 Take a test data frame with predicted series of dlogs and use it to grow out the actual series of interest.
 Similar to grow_dlog, but this uses data in df format, while the other uses data in xts format. Also, this

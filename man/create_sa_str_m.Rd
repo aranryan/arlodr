@@ -9,9 +9,6 @@ create_sa_str_m(str_m)
 \arguments{
 \item{str_m}{}
 }
-\value{
-
-}
 \description{
 function takes a monthly data frame with monthly data and seasonal factors
 and creates monthly sa

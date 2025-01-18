@@ -13,9 +13,6 @@ clean_up_trend(df, seggeo, trend_type)
 
 \item{trend_type}{If "international", expects an exchange rate column to be in the source data}
 }
-\value{
-
-}
 \description{
 Cleans up a dataframe of data that has been read in from the Raw Data tab of a monthly trend report
 }

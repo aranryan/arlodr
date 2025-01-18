@@ -9,9 +9,6 @@ xts_dropallna(x)
 \arguments{
 \item{x}{}
 }
-\value{
-
-}
 \description{
 Works on an xts object. Useful to run before a rollapply regression.
 }

@@ -9,9 +9,6 @@ index_q_melted(x, index_year)
 \arguments{
 \item{index_year}{}
 }
-\value{
-
-}
 \description{
 create an index of a single quarterly series that is in a melted dataframe
 }

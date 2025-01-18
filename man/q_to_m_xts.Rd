@@ -9,9 +9,6 @@ q_to_m_xts(x, type)
 \arguments{
 \item{type}{}
 }
-\value{
-
-}
 \description{
 Uses the q_to_m function.
 }

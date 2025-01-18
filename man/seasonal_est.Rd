@@ -12,9 +12,6 @@ seasonal_est(df, holiday_input = "blank")
 \item{holiday_input}{Optional set of monthly holiday regressors as a
 time series}
 }
-\value{
-
-}
 \description{
 Estimate seasonal factors
 }

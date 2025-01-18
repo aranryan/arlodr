@@ -14,11 +14,6 @@ predict_dyn(model, train, test, dependentvar)
 \arguments{
 \item{dependentvar}{}
 }
-\value{
-
-
-
-}
 \description{
 create predictions using dyn$predict
 created based on

@@ -17,9 +17,6 @@ plot_title_5(
 \arguments{
 \item{savewidth}{}
 }
-\value{
-
-}
 \description{
 This is the plotting function that I was using for some time in the US overview graphs. I had previously had some
 troubling moving it to the package. But when I cleaned up how I was referring to paths, it seemed

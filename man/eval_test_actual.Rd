@@ -16,9 +16,6 @@ eval_test_actual(
 \arguments{
 \item{end_date}{}
 }
-\value{
-
-}
 \description{
 evaluates the test versus actual
 }

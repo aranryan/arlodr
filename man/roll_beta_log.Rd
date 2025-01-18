@@ -9,9 +9,6 @@ roll_beta_log(x)
 \arguments{
 \item{x}{}
 }
-\value{
-
-}
 \description{
 Uses rollapply to estimate equation results.
 }

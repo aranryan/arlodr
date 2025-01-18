@@ -13,9 +13,6 @@ seasonal_apply(df, date, group)
 
 \item{group}{Name of geography or other grouping, e.g., geoseg.}
 }
-\value{
-
-}
 \description{
 Apply the seasonal factors
 }

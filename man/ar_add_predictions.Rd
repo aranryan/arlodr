@@ -19,9 +19,6 @@ ar_add_predictions(
 \arguments{
 \item{data}{}
 }
-\value{
-
-}
 \description{
 Make predictions based on growing out dlogs, after filtering to particular geography.
 }

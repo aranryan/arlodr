@@ -9,9 +9,6 @@ units_millions(col)
 \arguments{
 \item{col}{}
 }
-\value{
-
-}
 \description{
 converts units to millions, taking a column of a dataframe as input
 }

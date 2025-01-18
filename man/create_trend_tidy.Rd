@@ -13,9 +13,6 @@ create_trend_tidy(df, date_var, frequency)
 
 \item{frequency}{Number of period per year (enter as number)}
 }
-\value{
-
-}
 \description{
 Based on a date column, append a trend variable to a data frame
 }

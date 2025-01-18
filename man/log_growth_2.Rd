@@ -15,9 +15,6 @@ rate by doing ((1 + estimate) ^ periods_year - 1)}
 
 \item{x}{character vector naming independent variable}
 }
-\value{
-
-}
 \description{
 See example_growth_trend in vignettes for usage. This makes an estimate even
 if there are only a couple actual data points.

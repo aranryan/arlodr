@@ -10,9 +10,6 @@ factor_extend(df, horizon)
 \arguments{
 \item{horizon}{Future horizon over which to extend series, such as "5 years"}
 }
-\value{
-
-}
 \description{
 Function to extract seasonal factors and extend them using a
 a simple forecast. Used in seasonal_overall function.

@@ -9,9 +9,6 @@ index_q(x, index_year)
 \arguments{
 \item{index_year}{}
 }
-\value{
-
-}
 \description{
 create an index of a quarterly xts or maybe zoo series
 }

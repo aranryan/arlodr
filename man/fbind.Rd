@@ -9,9 +9,6 @@ fbind(a, b)
 \arguments{
 \item{b}{}
 }
-\value{
-
-}
 \description{
 Bind two factors as an example
 }

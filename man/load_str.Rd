@@ -9,9 +9,6 @@ load_str(load_m, units = NULL)
 \arguments{
 \item{load_m}{}
 }
-\value{
-
-}
 \description{
 function takes a data frame of monthly str data
 and returns a list containing a monthly data frame

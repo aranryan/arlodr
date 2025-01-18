@@ -10,9 +10,6 @@ grow_dlog(predict_xts, train_xts, predict_dlog, predict_level)
 \arguments{
 \item{predict_level}{}
 }
-\value{
-
-}
 \description{
 take a test dataframe with predicted series of dlogs and use it to grow out the actual series of interest
 Also see grow_dlog2.

@@ -2,9 +2,14 @@
 % Please edit documentation in R/arlodr-package.r
 \docType{package}
 \name{arlodr}
+\alias{arlodr-package}
 \alias{arlodr}
 \title{arlodr.}
 \description{
 Collection of functions that are useful in lodging forecast process. Also
 helpful with graphing.
+}
+\author{
+\strong{Maintainer}: Aran Ryan \email{aran.ryan@gmail.com}
+
 }

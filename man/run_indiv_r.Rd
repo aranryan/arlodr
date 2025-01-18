@@ -25,9 +25,6 @@ run_indiv_r(
 \arguments{
 \item{select_out}{}
 }
-\value{
-
-}
 \description{
 original part of regress script in fred project
 }

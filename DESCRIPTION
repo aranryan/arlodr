@@ -4,7 +4,7 @@ Version: 0.0.0.9000
 Authors@R: person("Aran", "Ryan", email = "aran.ryan@gmail.com", role = c("aut", "cre"))
 Description: Provides functions that are useful in lodging forecast process.
 Depends:
-    R (>= 3.2.2)
+    R (>= 3.5)
 License: MIT + file LICENSE
 LazyData: true
 Suggests: testthat,
@@ -14,7 +14,6 @@ Imports: dplyr,
     plm,
     dynlm,
     knitr,
-    xlsx,
     tframe,
     tframePlus,
     lubridate,
@@ -34,3 +33,4 @@ Imports: dplyr,
     readxl,
     readr
 VignetteBuilder: knitr
+RoxygenNote: 7.3.2

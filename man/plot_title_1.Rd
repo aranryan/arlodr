@@ -9,9 +9,6 @@ plot_title_1(plot, grtitle, footnote)
 \arguments{
 \item{footnote}{}
 }
-\value{
-
-}
 \description{
 adds the title
 }
